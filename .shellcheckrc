@@ -1,0 +1,14 @@
+# ShellCheck configuration file
+# This matches the VS Code ShellCheck extension settings used by integrity-check.sh
+#
+# Enable all optional checks
+enable=all
+
+# Set severity level to catch style issues (same as VS Code)
+severity=style
+
+# Check sourced files
+check-sourced=true
+
+# Format for VS Code compatibility
+# (This file is for reference; the integrity check script uses command-line options)

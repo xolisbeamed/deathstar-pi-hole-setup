@@ -1,0 +1,219 @@
+{
+  "_description": "Death Star Pi-hole Setup - Master Configuration File",
+  "_version": "1.0.0",
+  "_last_updated": "2025-09-13",
+  
+  "project": {
+    "name": "Death Star Pi-hole Setup",
+    "description": "Host-side development tools for managing Death Star Pi deployments",
+    "version": "1.0.0",
+    "author": "Galactic Empire Development Team",
+    "repository": "deathstar-pi-hole-setup"
+  },
+  
+  "network": {
+    "pi": {
+      "default_ip": "192.168.122.164",
+      "default_user": "",
+      "ssh": {
+        "connect_timeout": 5,
+        "batch_mode": true,
+        "strict_host_key_checking": "no",
+        "user_known_hosts_file": "/dev/null"
+      }
+    },
+    "connection": {
+      "retry_attempts": 3,
+      "retry_delay": 2,
+      "max_wait_time": 30
+    }
+  },
+  
+  "directories": {
+    "local": {
+      "root": ".",
+      "pi_scripts": "deathstar-pi-hole-setup",
+      "config_files": ".",
+      "logs": "./logs"
+    },
+    "remote": {
+      "base_path": "/home/{user}/Repo/deathstar-pi-hole-setup/",
+      "scripts_path": "/home/{user}/Repo/deathstar-pi-hole-setup/",
+      "backup_path": "/home/{user}/Repo/deathstar-pi-hole-setup/backups/"
+    }
+  },
+  
+  "deployment": {
+    "rsync": {
+      "options": ["-avz", "--progress"],
+      "files_to_sync": [
+        "LICENSE",
+        "deathstar-pi-hole-setup/lib/config.json",
+        "deathstar-pi-hole-setup/lib/config_loader.sh",
+        "deathstar-pi-hole-setup/lib/log_handler.sh",
+        "deathstar-pi-hole-setup/remove.sh",
+        "deathstar-pi-hole-setup/lib/rich_installer.sh",
+        "deathstar-pi-hole-setup/setup.sh",
+        "deathstar-pi-hole-setup/status.sh",
+        "deathstar-pi-hole-setup/update.sh",
+        "deathstar-pi-hole-setup/lib/rich_helper.py"
+      ],
+      "exclude_patterns": [
+        "integrity-check*",
+        "push_to_pi*",
+        "connect_to_pi*",
+        ".git*",
+        "config.json"
+      ]
+    },
+    "validation": {
+      "required_files": [
+        "LICENSE",
+        "deathstar-pi-hole-setup/lib/config.json",
+        "deathstar-pi-hole-setup/lib/config_loader.sh",
+        "deathstar-pi-hole-setup/lib/log_handler.sh",
+        "deathstar-pi-hole-setup/remove.sh",
+        "deathstar-pi-hole-setup/lib/rich_installer.sh",
+        "deathstar-pi-hole-setup/setup.sh",
+        "deathstar-pi-hole-setup/status.sh",
+        "deathstar-pi-hole-setup/update.sh",
+        "deathstar-pi-hole-setup/lib/rich_helper.py"
+      ],
+      "host_scripts": [
+        "connect_to_pi.sh",
+        "push_to_pi.sh", 
+        "integrity-check.sh",
+        "deathstar-pi-hole-setup/lib/rich_helper.py"
+      ],
+      "pi_scripts": [
+        "deathstar-pi-hole-setup/setup.sh",
+        "deathstar-pi-hole-setup/status.sh",
+        "deathstar-pi-hole-setup/update.sh",
+        "deathstar-pi-hole-setup/remove.sh"
+      ]
+    }
+  },
+  
+  "integrity_check": {
+    "validation_checks": {
+      "file_existence": true,
+      "file_permissions": true,
+      "shellcheck": true,
+      "deployment_security": true,
+      "script_validation": true
+    },
+    "shellcheck": {
+      "enabled": true,
+      "auto_install": true,
+      "severity_levels": ["error", "warning", "info", "style"]
+    },
+    "expected_file_count": 6,
+    "critical_files": [
+      "LICENSE",
+      "push_to_pi.sh",
+      "connect_to_pi.sh", 
+      "integrity-check.sh",
+      "deathstar-pi-hole-setup/lib/rich_helper.py"
+    ]
+  },
+  
+  "display": {
+    "colors": {
+      "red": "\\033[0;31m",
+      "green": "\\033[0;32m", 
+      "yellow": "\\033[1;33m",
+      "blue": "\\033[0;34m",
+      "purple": "\\033[0;35m",
+      "cyan": "\\033[0;36m",
+      "no_color": "\\033[0m"
+    },
+    "rich_formatting": {
+      "enabled": true,
+      "fallback_to_basic": true,
+      "table_style": "bold blue",
+      "header_style": "bold magenta"
+    },
+    "banners": {
+      "push_title": "🚀 Death Star Pi Development Push 🤖",
+      "push_subtitle": "Deploying from {local_dir} development station to {user}'s Death Star Pi ({target})",
+      "connect_title": "🚀 Death Star Pi SSH Connect 🤖", 
+      "connect_subtitle": "Establishing connection to {user}'s Death Star Pi at {target}",
+      "integrity_title": "🔍 Death Star Pi Integrity Check 🤖",
+      "integrity_subtitle": "Validating project structure and deployment readiness"
+    }
+  },
+  
+  "features": {
+    "rich_tables": {
+      "enabled": true,
+      "require_python3": true,
+      "require_rich_library": true
+    },
+    "auto_validation": {
+      "pre_deployment": true,
+      "post_deployment": true,
+      "connection_check": true
+    },
+    "interactive_prompts": {
+      "enabled": true,
+      "timeout": 30,
+      "default_responses": {
+        "continue_deployment": "y",
+        "overwrite_files": "y", 
+        "run_validation": "y"
+      }
+    }
+  },
+  
+  "security": {
+    "ssh": {
+      "batch_mode_for_tests": true,
+      "require_key_auth": false,
+      "disable_password_auth": false
+    },
+    "file_permissions": {
+      "script_permissions": "755",
+      "config_permissions": "644",
+      "validate_permissions": true
+    },
+    "deployment": {
+      "validate_target": true,
+      "confirm_overwrites": true,
+      "backup_before_deploy": false
+    }
+  },
+  
+  "logging": {
+    "enabled": false,
+    "level": "info",
+    "file": "./logs/deathstar-pi-setup.log",
+    "max_size": "10MB",
+    "rotate": true
+  },
+  
+  "dependencies": {
+    "required": {
+      "bash": ">=4.0",
+      "ssh": "*",
+      "rsync": "*"
+    },
+    "optional": {
+      "python3": ">=3.6",
+      "python3-rich": ">=10.0",
+      "shellcheck": "*"
+    }
+  },
+  
+  "environment": {
+    "development": {
+      "debug": false,
+      "verbose": true,
+      "strict_validation": true
+    },
+    "production": {
+      "debug": false,
+      "verbose": false,
+      "strict_validation": true
+    }
+  }
+}

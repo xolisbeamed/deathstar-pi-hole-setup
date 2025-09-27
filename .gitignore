@@ -1,0 +1,83 @@
+# Logs
+*.log
+*.log.*
+/tmp/
+/logs/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# SSH keys and certificates
+*.pem
+*.key
+*.crt
+*.csr
+id_rsa*
+id_ed25519*
+known_hosts
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Archive files
+*.tar
+*.tar.gz
+*.zip
+*.rar
+
+# Configuration files that might contain sensitive data
+config.yml.backup
+inventory.ini.backup
+secrets.yml
+
+# Docker related
+.dockerignore
+
+# Ansible files that might be generated
+*.retry
+.ansible/
+
+# Local test files
+test_*
+debug_*
+
+# Personal notes and documentation
+NOTES.md
+TODO.md
+personal_*
+
+# Status output files
+status_output.log

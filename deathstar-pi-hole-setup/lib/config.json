@@ -1,0 +1,63 @@
+{
+  "_description": "Death Star Pi-hole Setup - Scripts Configuration File",
+  "_version": "1.0.0",
+  "_last_updated": "2025-09-15",
+  
+  "system": {
+    "hostnames": {
+      "new_hostname": "deathstar-core",
+      "original_hostname": "raspberrypi",
+      "domain_name": "deathstar.core"
+    },
+    "paths": {
+      "home_dir": "$HOME",
+      "repo_base": "$HOME/Repo",
+      "internet_pi_dir": "$HOME/Repo/internet-pi",
+      "deathstar_scripts_dir": "$HOME/Repo/deathstar-pi-hole-setup",
+      "config_dir": "$HOME"
+    }
+  },
+  
+  "repositories": {
+    "internet_pi": {
+      "url": "https://github.com/geerlingguy/internet-pi.git",
+      "local_path": "$HOME/Repo/internet-pi"
+    }
+  },
+  
+  "services": {
+    "ports": {
+      "pihole": "80",
+      "grafana": "3030",
+      "prometheus": "9090"
+    }
+  },
+  
+  "logging": {
+    "version": "2.0.0",
+    "files": {
+      "main_log": "deathstar-pi.log",
+      "debug_log": "deathstar-pi-debug.log",
+      "error_log": "deathstar-pi-errors.log",
+      "performance_log": "deathstar-pi-performance.log"
+    },
+    "rotation": {
+      "max_size": "50M",
+      "max_files": 5
+    },
+    "settings": {
+      "enable_debug": false,
+      "enable_performance": true,
+      "enable_error_trace": true
+    }
+  },
+  
+  "state_management": {
+    "state_file": "$HOME/.deathstar_setup_state",
+    "config_file": "$HOME/.deathstar_config"
+  },
+  
+  "hardware": {
+    "pi5_optimizations": true
+  }
+}
