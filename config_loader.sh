@@ -103,7 +103,7 @@ load_config_array() {
 load_network_config() {
     if ! check_config_file || ! check_jq_available; then
         # Fallback defaults
-        export PI_IP="192.168.122.164"
+        export PI_IP="192.168.122.159"
         export SSH_TIMEOUT="5"
         export RETRY_ATTEMPTS="3"
         return 1
@@ -111,7 +111,7 @@ load_network_config() {
     
     # Load network configuration values
     local pi_ip
-    pi_ip=$(load_config '.network.pi.default_ip' '192.168.122.164')
+    pi_ip=$(load_config '.network.pi.default_ip' '192.168.122.159')
     export PI_IP="${pi_ip}"
     local ssh_timeout
     ssh_timeout=$(load_config '.network.pi.ssh.connect_timeout' '5')

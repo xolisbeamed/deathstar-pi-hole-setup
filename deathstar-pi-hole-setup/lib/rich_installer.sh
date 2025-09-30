@@ -27,16 +27,24 @@ ensure_rich_available() {
     
     # Check if python3 is available
     if ! command -v python3 >/dev/null 2>&1; then
-        echo "❌ Python3 not found - cannot install Rich library"
-        echo "💡 Please install Python3: sudo apt install python3"
-        return 1
+        echo "❌ Python3 not found - installing Python3..."
+        if sudo apt update >/dev/null 2>&1 && sudo apt install -y python3 >/dev/null 2>&1; then
+            echo "✅ Python3 installed successfully"
+        else
+            echo "❌ Failed to install Python3"
+            return 1
+        fi
     fi
     
     # Check if pip3 is available
     if ! command -v pip3 >/dev/null 2>&1; then
-        echo "❌ pip3 not found - cannot install Rich library"
-        echo "💡 Please install pip3: sudo apt install python3-pip"
-        return 1
+        echo "❌ pip3 not found - installing pip3..."
+        if sudo apt install -y python3-pip >/dev/null 2>&1; then
+            echo "✅ pip3 installed successfully"
+        else
+            echo "❌ Failed to install pip3"
+            return 1
+        fi
     fi
     
     # Check if Rich is already installed
@@ -54,11 +62,11 @@ ensure_rich_available() {
         echo "📦 Installing Rich library for enhanced visual output..."
         
         # Install Rich
-        if pip3 install rich >/dev/null 2>&1; then
+        if pip3 install --break-system-packages rich >/dev/null 2>&1; then
             echo "✅ Rich library installed successfully"
         else
             echo "⚠️  Rich installation failed - will use basic text formatting"
-            echo "💡 You can manually install with: pip3 install rich"
+            echo "💡 You can manually install with: pip3 install --break-system-packages rich"
             return 1
         fi
     fi

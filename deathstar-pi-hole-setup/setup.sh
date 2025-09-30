@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2310
 #===============================================================================
 # File: setup.sh
 # Project: Death Star Pi-hole Setup
@@ -135,6 +136,7 @@ use_rich_if_available() {
 }
 
 rich_header() {
+    # shellcheck disable=SC2310
     if use_rich_if_available; then
         python3 "${RICH_HELPER}" header --title "$1" --subtitle "${2:-}"
     else
@@ -146,6 +148,7 @@ rich_header() {
 }
 
 rich_section() {
+    # shellcheck disable=SC2310
     if use_rich_if_available; then
         python3 "${RICH_HELPER}" section --title "$1"
     else
@@ -157,6 +160,7 @@ rich_status() {
     local message="$1"
     local style="${2:-info}"
     
+    # shellcheck disable=SC2310
     if use_rich_if_available; then
         python3 "${RICH_HELPER}" status --message "${message}" --style "${style}"
     else
@@ -174,6 +178,7 @@ rich_check() {
     local status="$2"
     local details="${3:-}"
     
+    # shellcheck disable=SC2310
     if use_rich_if_available; then
         python3 "${RICH_HELPER}" check --name "${name}" --status "${status}" --details "${details}"
     else
@@ -434,6 +439,7 @@ confirm_user_choices() {
 # Returns: 0 on success, exits on failure
 #===============================================================================
 install_system_updates() {
+    # shellcheck disable=SC2310
     if is_state_complete "SYSTEM_UPDATE"; then
         print_status "System updates already completed, skipping..."
         return 0
@@ -491,6 +497,7 @@ install_core_packages() {
     fi
     
     for package in "${packages[@]}"; do
+        # shellcheck disable=SC2310
         if package_installed "${package}"; then
             print_status "${package} already installed"
         else
@@ -1178,6 +1185,7 @@ perform_reboot() {
 
 # Function to display a prominent reboot instruction message
 show_prominent_reboot_message() {
+    # shellcheck disable=SC2310
     if use_rich_if_available; then
         # Create a custom reboot panel with Rich
         python3 -c "
@@ -2041,6 +2049,7 @@ show_completion_summary() {
     source "${CONFIG_FILE}"
     
     # Show completion header with Rich if available
+    # shellcheck disable=SC2310
     if use_rich_if_available; then
         python3 -c "
 from rich.console import Console
